@@ -1,0 +1,2 @@
+# cs11afall18-team21
+Online Shopping basket app. Do you meet the situation that some online shopping websites say, “Spending at least xxx dollars and get a small gift”? However, if you have so many things in basket, it’s hard to organize how to split the order to get as many gifts as possible. This app will help you to split your order and get more gifts when you input the minimum spending for a gift~ 
