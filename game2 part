@@ -1,0 +1,122 @@
+import java.util.Scanner;
+public class MYMYproject {
+	public static void main(String[] args) {
+		char smalleye1 = '\uFF1E';
+		char smalleye2 = '\uFF1C';
+		char smallmouth = '\uFE35';
+		char gotiteye = '\u005E';
+		char gotitmouth = '\uFE36';
+		char black = '\u2605';
+		char white = '\u2606';
+		for (int n = 0; n <= 34; n++) {
+			if (n%2 == 0) {
+				System.out.print(black);
+			} else {
+				System.out.print(white);
+			}
+		}
+		System.out.println("");
+		System.out.println(black + " Welcome to number guessing game~" + black);
+		for (int n = 0; n <= 34; n++) {
+			if (n%2 == 0) {
+				System.out.print(black);
+			} else {
+				System.out.print(white);
+			}
+		}
+		System.out.println("");
+    System.out.println("First you need to get a permission for this game~");
+    String permission = "Spanish";
+		test(permission);
+		Integer total = 0;
+		Integer value = (int) (Math.random() * 100) + 1;
+		Integer maxValue = 100;
+		Integer minValue = 1;
+		while (true) {
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("Please input a number：(" + minValue + "~" + maxValue + ")");
+			try {
+				total++;
+				int guessNumber = scanner.nextInt();
+				if (guessNumber > value) {
+					maxValue = guessNumber;
+					System.out.println("It's too big");
+					String bigface[][] = new String[4][5];
+			    for (int i = 0; i <= 3; i++) {
+			      for (int j = 0; j <=4; j++) {
+			        if (i == 1 && j == 1) {
+			          System.out.print("x");
+			        } else if (i == 1 && j == 3) {
+			          System.out.print("x");
+			        } else if (i == 2 && j == 2) {
+			          System.out.print("o");
+			        } else if (j == 4) {
+			          System.out.println(" ");
+			        } else {
+			          System.out.print(" ");
+			        }
+			      }
+			    }
+				} else if (guessNumber < value) {
+					minValue = guessNumber;
+					System.out.println("It's too small");
+					String smallface[][] = new String[4][5];
+          for (int i = 0; i <= 3; i++) {
+            for (int j = 0; j <=4; j++) {
+        			if (i == 1 && j == 1) {
+              	System.out.print(smalleye1);
+        		  } else if (i == 1 && j == 3) {
+                System.out.print(smalleye2);
+        			} else if (i == 2 && j == 2) {
+          			System.out.print(smallmouth);
+        			} else if (j == 4) {
+          			System.out.println(" ");
+        			} else {
+                System.out.print(" ");
+              }
+            }
+          }
+				} else {
+					System.out.println("You spent " + total + " times and got it!");
+					String bigface[][] = new String[4][5];
+					for (int i = 0; i <= 3; i++) {
+						for (int j = 0; j <=4; j++) {
+							if (i == 1 && j == 1) {
+								System.out.print(gotiteye);
+							} else if (i == 1 && j == 3) {
+								System.out.print(gotiteye);
+							} else if (i == 2 && j == 2) {
+								System.out.print(gotitmouth);
+							} else if (j == 4) {
+								System.out.println(" ");
+							} else {
+								System.out.print(" ");
+							}
+						}
+					}
+					System.out.println("Do you want to continue？(yes/no)");
+					scanner = new Scanner(System.in);
+					String str = scanner.nextLine();
+					if ("yes".equals(str)) {
+						value = (int) (Math.random() * 100) + 1;
+						total = 0;
+						maxValue = 100;
+						minValue = 1;
+					} else {
+            System.out.println("Thanks for playing with us, have a nice day!");
+						break;
+					}
+				}
+			} catch (Exception e) {
+				System.out.println("What you input is invalid");
+			}
+		}
+	}
+	public static void test(String permission) {
+	  while (!permission.equals("cinco")) {
+	    System.out.println("  one two three four cinco six seven eight nine");
+	    System.out.println("Please find the wrong one:");
+	    permission = TextIO.getln();
+	  }
+  }
+}
